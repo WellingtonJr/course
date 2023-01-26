@@ -11,7 +11,7 @@ import com.ead.course.models.ModuleModel;
 
 public interface ModuleRepository extends JpaRepository<ModuleModel, UUID> {
 
-    @Query(value = "select * from tb_modules whete course_course_id = :courseId", nativeQuery = true)
+    @Query(value = "select * from tb_modules where course_course_id = :courseId", nativeQuery = true)
     List<ModuleModel> finddAllModulesIntoCourse(@Param("courseId") UUID courseId);
 
 }
