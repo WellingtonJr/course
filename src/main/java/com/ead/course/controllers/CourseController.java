@@ -42,8 +42,8 @@ public class CourseController {
     public ResponseEntity<Object> saveCourse(@RequestBody @Valid CourseDto courseDto) {
         var courseModel = new CourseModel();
         BeanUtils.copyProperties(courseDto, courseModel);
-        courseModel.setCreationDate(LocalDateTime.now(ZoneId.of("UTC-3")));
-        courseModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC-3")));
+        courseModel.setCreationDate(LocalDateTime.now(ZoneId.of("UTC")));
+        courseModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC")));
         return ResponseEntity.status(HttpStatus.CREATED).body(courseService.save(courseModel));
     }
 
@@ -66,7 +66,7 @@ public class CourseController {
         }
         var courseModel = courseModelOptional.get();
         BeanUtils.copyProperties(courseDto, courseModel);
-        courseModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC-3")));
+        courseModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC")));
 
         return ResponseEntity.status(HttpStatus.CREATED).body(courseService.save(courseModel));
     }
@@ -74,6 +74,7 @@ public class CourseController {
     @GetMapping
     public ResponseEntity<Page<CourseModel>> getAllCourses(SpecificationTemplate.CourseSpec spec,
             @PageableDefault(page = 0, size = 10, sort = "courseId", direction = Sort.Direction.ASC) Pageable pageable) {
+        System.out.println("aqijaasSAIODAIS");
         return ResponseEntity.status(HttpStatus.OK).body(courseService.findAll(spec, pageable));
     }
 
