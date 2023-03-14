@@ -1,8 +1,14 @@
 package com.ead.course.services;
 
-import org.springframework.stereotype.Service;
+import java.util.UUID;
 
-@Service
+import com.ead.course.models.CourseModel;
+import com.ead.course.models.CourseUserModel;
+
 public interface CourseUserService {
+
+    boolean existsByCourseAndUserId(CourseModel courseModel, UUID userId);
+
+    CourseUserModel save(CourseUserModel courseUserModel);
 
 }

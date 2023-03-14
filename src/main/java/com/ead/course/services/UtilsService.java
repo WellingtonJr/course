@@ -6,5 +6,5 @@ import org.springframework.data.domain.Pageable;
 
 public interface UtilsService {
 
-    String createUrl(UUID courseId, Pageable pageable);
+    String createUrlGetAllUsersByCourse(UUID courseId, Pageable pageable);
 }
