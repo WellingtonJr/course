@@ -17,7 +17,7 @@ import com.ead.course.dtos.UserDto;
 import com.ead.course.services.UtilsService;
 
 @Component
-public class CourseClient {
+public class AuthUserClient {
 
     @Autowired
     RestTemplate restTemplate;
@@ -40,11 +40,15 @@ public class CourseClient {
                     responseType);
             // searchResult = result.getBody().getContent();
         } catch (Exception e) {
-            // TODO: handle exception
             System.err.println("ERROR: " + e.getMessage());
         }
 
         return result.getBody();
+    }
+
+    public ResponseEntity<UserDto> getOneUserById(UUID userId) {
+        String url = REQUEST_URL_AUTHUSER + "/users/" + userId;
+        return restTemplate.exchange(url, HttpMethod.GET, null, UserDto.class);
     }
 
 }
