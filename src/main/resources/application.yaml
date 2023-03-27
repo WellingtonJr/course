@@ -20,7 +20,8 @@ spring:
                 opaquetoken:
                     introspection-uri: http://localhost:8080/oauth/check_token
                     client-id: checkToken
-                    client-secret: check123               
+                    client-secret: check123      
+                             
 ead:
     api:
         url: 
