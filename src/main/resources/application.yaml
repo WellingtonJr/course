@@ -18,15 +18,7 @@ spring:
         oauth2:
             resourceserver:
                 jwt:
-                    public-key-location: classpath:keys/courseapi-pkey.pem
-    
-    # security:
-    #     oauth2:
-    #         resourceserver:
-    #             opaquetoken:
-    #                 introspection-uri: http://localhost:8080/oauth/check_token
-    #                 client-id: checkToken
-    #                 client-secret: check123      
+                    public-key-location: classpath:keys/courseapi-pkey.pem 
                              
 ead:
     api:
