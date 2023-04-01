@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ead.course.dtos.CourseDto;
 import com.ead.course.models.CourseModel;
+import com.ead.course.security.CourseApiSecurity;
 import com.ead.course.services.CourseService;
 import com.ead.course.specifications.SpecificationTemplate;
 
@@ -38,6 +39,9 @@ public class CourseController {
 
     @Autowired
     CourseService courseService;
+
+    @Autowired
+    private CourseApiSecurity courseApiSecurity;
 
     @PostMapping
     public ResponseEntity<Object> saveCourse(@RequestBody @Valid CourseDto courseDto) {
@@ -82,6 +86,11 @@ public class CourseController {
             return ResponseEntity.status(HttpStatus.OK)
                     .body(courseService.findAll(SpecificationTemplate.courseUserId(userId).and(spec), pageable));
         }
+
+        // var strId = courseApiSecurity.getUsuarioId();
+        // UUID usuarioId = UUID.fromString(strId);
+        System.out.println(courseApiSecurity.getUsuarioId());
+
         return ResponseEntity.status(HttpStatus.OK).body(courseService.findAll(spec, pageable));
     }
 
