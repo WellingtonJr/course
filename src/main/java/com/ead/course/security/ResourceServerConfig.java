@@ -16,12 +16,12 @@ public class ResourceServerConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .anyRequest().authenticated()
+                .antMatchers("/oauth2/**").authenticated()
                 .and()
                 .csrf().disable()
                 .cors()
                 .and()
-                .oauth2ResourceServer().opaqueToken();
+                .oauth2ResourceServer().jwt();
 
         return http.build();
     }

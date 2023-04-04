@@ -17,11 +17,14 @@ spring:
     security:
         oauth2:
             resourceserver:
-                opaque-token:
-                    introspection-uri: http://localhost:8080/oauth2/introspect
-                    client-id: course-api
-                    client-secret: 123
-                    
+                jwt:
+                    jwk-set-uri: http://localhost:8080/oauth2/jwks
+                # opaque-token:
+                #     introspection-uri: http://localhost:8080/oauth2/introspect
+                #     client-id: course-api
+                #     client-secret: 123
+
+                 
 ead:
     api:
         url: 
