@@ -89,7 +89,7 @@ public class CourseController {
 
         // var strId = courseApiSecurity.getUsuarioId();
         // UUID usuarioId = UUID.fromString(strId);
-        System.out.println(courseApiSecurity.getUsuarioId());
+        // System.out.println(courseApiSecurity.getUsuarioId());
 
         return ResponseEntity.status(HttpStatus.OK).body(courseService.findAll(spec, pageable));
     }
